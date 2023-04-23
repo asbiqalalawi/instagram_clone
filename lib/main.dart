@@ -17,8 +17,9 @@ void main() async {
         projectId: 'instagram-clone-b15e4',
       ),
     );
+  } else {
+    await Firebase.initializeApp();
   }
-  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
