@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:instagram_clone/resources/auth_methods.dart';
 import 'package:instagram_clone/utils/colors.dart';
+import 'package:instagram_clone/utils/utils.dart';
 import 'package:instagram_clone/widgets/text_field_input.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -11,15 +13,36 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final TextEditingController _emailEditingController = TextEditingController();
-  final TextEditingController _passwordEditingController =
-      TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  bool _isLoading = false;
 
   @override
   void dispose() {
-    _emailEditingController.dispose();
-    _passwordEditingController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
     super.dispose();
+  }
+
+  Future<void> login() async {
+    setState(() {
+      _isLoading = true;
+    });
+
+    await AuthMethods()
+        .login(
+      email: _emailController.text,
+      password: _passwordController.text,
+    )
+        .then((res) {
+      if (res != 'Success') {
+        showSnackBar(res, context);
+      }
+    });
+
+    setState(() {
+      _isLoading = false;
+    });
   }
 
   @override
@@ -38,14 +61,15 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               SvgPicture.asset(
                 'assets/ic_instagram.svg',
-                colorFilter: const ColorFilter.mode(primaryColor, BlendMode.srcIn),
+                colorFilter:
+                    const ColorFilter.mode(primaryColor, BlendMode.srcIn),
                 height: 64,
               ),
               const SizedBox(
                 height: 64,
               ),
               TextFieldInput(
-                textEditingController: _emailEditingController,
+                textEditingController: _emailController,
                 hintText: 'Enter your email',
                 keyboardType: TextInputType.emailAddress,
               ),
@@ -53,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 24,
               ),
               TextFieldInput(
-                textEditingController: _passwordEditingController,
+                textEditingController: _passwordController,
                 hintText: 'Enter your password',
                 keyboardType: TextInputType.text,
                 isPass: true,
@@ -62,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 24,
               ),
               InkWell(
-                onTap: () {},
+                onTap: () => login(),
                 child: Container(
                   alignment: Alignment.center,
                   width: double.infinity,
@@ -73,7 +97,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     color: blueColor,
                   ),
-                  child: const Text('Log in'),
+                  child: _isLoading
+                      ? const CircularProgressIndicator(
+                          color: primaryColor,
+                        )
+                      : const Text('Log in'),
                 ),
               ),
               Flexible(

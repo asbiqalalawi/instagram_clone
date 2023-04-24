@@ -16,19 +16,17 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
-  final TextEditingController _usernameEditingController =
-      TextEditingController();
-  final TextEditingController _emailEditingController = TextEditingController();
-  final TextEditingController _passwordEditingController =
-      TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   Uint8List? _image;
   bool _isLoading = false;
 
   @override
   void dispose() {
-    _usernameEditingController.dispose();
-    _emailEditingController.dispose();
-    _passwordEditingController.dispose();
+    _usernameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
     super.dispose();
   }
 
@@ -46,9 +44,9 @@ class _SignupScreenState extends State<SignupScreen> {
 
     await AuthMethods()
         .signUp(
-      username: _usernameEditingController.text,
-      email: _emailEditingController.text,
-      password: _passwordEditingController.text,
+      username: _usernameController.text,
+      email: _emailController.text,
+      password: _passwordController.text,
       file: _image!,
     )
         .then((res) {
@@ -114,7 +112,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 height: 24,
               ),
               TextFieldInput(
-                textEditingController: _usernameEditingController,
+                textEditingController: _usernameController,
                 hintText: 'Enter your username',
                 keyboardType: TextInputType.text,
               ),
@@ -122,7 +120,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 height: 24,
               ),
               TextFieldInput(
-                textEditingController: _emailEditingController,
+                textEditingController: _emailController,
                 hintText: 'Enter your email',
                 keyboardType: TextInputType.emailAddress,
               ),
@@ -130,7 +128,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 height: 24,
               ),
               TextFieldInput(
-                textEditingController: _passwordEditingController,
+                textEditingController: _passwordController,
                 hintText: 'Enter your password',
                 keyboardType: TextInputType.text,
                 isPass: true,
