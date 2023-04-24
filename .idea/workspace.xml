@@ -9,11 +9,14 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ecd2190-cabd-4352-837a-cecb78822738" name="Changes" comment="Login Screen UI (Mobile)">
-      <change afterPath="$PROJECT_DIR$/lib/screens/signup_screen.dart" afterDir="false" />
+    <list default="true" id="9ecd2190-cabd-4352-837a-cecb78822738" name="Changes" comment="Signup Screen UI (Mobile)">
+      <change afterPath="$PROJECT_DIR$/lib/resources/auth_methods.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/resources/storage_methods.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/utils.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/login_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/login_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/signup_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/signup_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682300478198</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Signup Screen UI (Mobile)">
+      <created>1682325161178</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682325161178</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -129,6 +139,7 @@
     <MESSAGE value="Firebase configuration update" />
     <MESSAGE value="Pod Runner iOS" />
     <MESSAGE value="Login Screen UI (Mobile)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login Screen UI (Mobile)" />
+    <MESSAGE value="Signup Screen UI (Mobile)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Signup Screen UI (Mobile)" />
   </component>
 </project>
