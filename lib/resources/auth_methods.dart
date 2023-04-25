@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:instagram_clone/models/user.dart' as model;
 import 'package:instagram_clone/resources/storage_methods.dart';
 
 class AuthMethods {
@@ -18,31 +19,37 @@ class AuthMethods {
     String res = 'Some error occurred';
 
     try {
-      // Register user
-      UserCredential cred = await _auth.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
+      if (username.isNotEmpty && email.isNotEmpty && password.isNotEmpty && file.isNotEmpty) {
 
-      // Save image to storage
-      String profilePic = await StorageMethods().uploadImageToStorage(
-        'profile',
-        file,
-        false,
-      );
+        // Register user
+        UserCredential cred = await _auth.createUserWithEmailAndPassword(
+          email: email,
+          password: password,
+        );
 
-      // Add user to DB
-      String uid = cred.user!.uid;
-      _firestore.collection('users').doc(uid).set({
-        'uid': uid,
-        'username': username,
-        'email': email,
-        'followers': [],
-        'following': [],
-        'profilePic': profilePic,
-      });
+        // Save image to storage
+        String profilePic = await StorageMethods().uploadImageToStorage(
+          'profile',
+          file,
+          false,
+        );
 
-      res = 'Success';
+        // Add user to DB
+        String uid = cred.user!.uid;
+        final user = model.User(
+          uid: uid,
+          username: username,
+          email: email,
+          followers: [],
+          following: [],
+          profilePic: profilePic,
+        );
+        _firestore.collection('users').doc(uid).set(user.toJson());
+
+        res = 'Success';
+      } else {
+        res = 'Please enter all the field';
+      }
     } catch (err) {
       res = err.toString();
     }
