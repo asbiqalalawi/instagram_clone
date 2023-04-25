@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:instagram_clone/resources/auth_methods.dart';
+import 'package:instagram_clone/responsive/mobile_screen_layout.dart';
+import 'package:instagram_clone/responsive/responsive_layout_screen.dart';
+import 'package:instagram_clone/responsive/web_screen_layout.dart';
+import 'package:instagram_clone/screens/signup_screen.dart';
 import 'package:instagram_clone/utils/colors.dart';
 import 'package:instagram_clone/utils/utils.dart';
 import 'package:instagram_clone/widgets/text_field_input.dart';
@@ -34,15 +38,35 @@ class _LoginScreenState extends State<LoginScreen> {
       email: _emailController.text,
       password: _passwordController.text,
     )
-        .then((res) {
-      if (res != 'Success') {
-        showSnackBar(res, context);
-      }
-    });
+        .then(
+      (res) {
+        if (res != 'Success') {
+          showSnackBar(res, context);
+        } else {
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (context) => const ResponsiveLayout(
+                mobileScreenLayout: MobileScreenLayout(),
+                webScreenLayout: WebScreenLayout(),
+              ),
+            ),
+          );
+        }
+      },
+    );
 
     setState(() {
       _isLoading = false;
     });
+  }
+
+  void navigateToSignUp() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const SignupScreen(),
+      ),
+    );
   }
 
   @override
@@ -61,8 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               SvgPicture.asset(
                 'assets/ic_instagram.svg',
-                colorFilter:
-                    const ColorFilter.mode(primaryColor, BlendMode.srcIn),
+                colorFilter: const ColorFilter.mode(primaryColor, BlendMode.srcIn),
                 height: 64,
               ),
               const SizedBox(
@@ -119,6 +142,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: 4,
                   ),
                   GestureDetector(
+                    onTap: () => navigateToSignUp(),
                     child: const Padding(
                       padding: EdgeInsets.symmetric(vertical: 8),
                       child: Text(

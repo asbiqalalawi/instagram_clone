@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:instagram_clone/resources/auth_methods.dart';
+import 'package:instagram_clone/responsive/mobile_screen_layout.dart';
+import 'package:instagram_clone/responsive/responsive_layout_screen.dart';
+import 'package:instagram_clone/responsive/web_screen_layout.dart';
+import 'package:instagram_clone/screens/login_screen.dart';
 import 'package:instagram_clone/utils/colors.dart';
 import 'package:instagram_clone/utils/utils.dart';
 import 'package:instagram_clone/widgets/text_field_input.dart';
@@ -52,12 +56,30 @@ class _SignupScreenState extends State<SignupScreen> {
         .then((res) {
       if (res != 'Success') {
         showSnackBar(res, context);
+      } else {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => const ResponsiveLayout(
+              mobileScreenLayout: MobileScreenLayout(),
+              webScreenLayout: WebScreenLayout(),
+            ),
+          ),
+        );
       }
     });
 
     setState(() {
       _isLoading = false;
     });
+  }
+
+  void navigateToLogin() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const LoginScreen(),
+      ),
+    );
   }
 
   @override
@@ -76,8 +98,7 @@ class _SignupScreenState extends State<SignupScreen> {
               ),
               SvgPicture.asset(
                 'assets/ic_instagram.svg',
-                colorFilter:
-                    const ColorFilter.mode(primaryColor, BlendMode.srcIn),
+                colorFilter: const ColorFilter.mode(primaryColor, BlendMode.srcIn),
                 height: 64,
               ),
               const SizedBox(
@@ -170,6 +191,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     width: 4,
                   ),
                   GestureDetector(
+                    onTap: () => navigateToLogin(),
                     child: const Padding(
                       padding: EdgeInsets.symmetric(vertical: 8),
                       child: Text(
