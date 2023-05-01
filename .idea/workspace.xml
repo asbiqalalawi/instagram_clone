@@ -9,16 +9,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ecd2190-cabd-4352-837a-cecb78822738" name="Changes" comment="Modeling User Data and Signup method validation">
-      <change afterPath="$PROJECT_DIR$/lib/providers/user_provider.dart" afterDir="false" />
+    <list default="true" id="9ecd2190-cabd-4352-837a-cecb78822738" name="Changes" comment="User Data State Management (Provider)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/user.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/resources/auth_methods.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/resources/auth_methods.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/resources/storage_methods.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/resources/storage_methods.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/responsive/mobile_screen_layout.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/responsive/mobile_screen_layout.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/responsive/responsive_layout_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/responsive/responsive_layout_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +139,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682412301740</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="User Data State Management (Provider)">
+      <created>1682907297042</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1682907297042</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -175,6 +175,7 @@
     <MESSAGE value="Firebase Login Auth" />
     <MESSAGE value="Persisting Auth State" />
     <MESSAGE value="Modeling User Data and Signup method validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modeling User Data and Signup method validation" />
+    <MESSAGE value="User Data State Management (Provider)" />
+    <option name="LAST_COMMIT_MESSAGE" value="User Data State Management (Provider)" />
   </component>
 </project>
