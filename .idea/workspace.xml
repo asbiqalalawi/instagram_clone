@@ -9,9 +9,12 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ecd2190-cabd-4352-837a-cecb78822738" name="Changes" comment="User Data State Management (Provider)">
+    <list default="true" id="9ecd2190-cabd-4352-837a-cecb78822738" name="Changes" comment="Mobile Bottom App Bar">
+      <change afterPath="$PROJECT_DIR$/lib/screens/add_post_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/responsive/mobile_screen_layout.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/responsive/mobile_screen_layout.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/responsive/responsive_layout_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/responsive/responsive_layout_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/dimensions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/global_variables.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682907297042</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Mobile Bottom App Bar">
+      <created>1682910877879</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1682910877879</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -176,6 +186,7 @@
     <MESSAGE value="Persisting Auth State" />
     <MESSAGE value="Modeling User Data and Signup method validation" />
     <MESSAGE value="User Data State Management (Provider)" />
-    <option name="LAST_COMMIT_MESSAGE" value="User Data State Management (Provider)" />
+    <MESSAGE value="Mobile Bottom App Bar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mobile Bottom App Bar" />
   </component>
 </project>
