@@ -9,14 +9,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ecd2190-cabd-4352-837a-cecb78822738" name="Changes" comment="Selecting Image">
-      <change afterPath="$PROJECT_DIR$/lib/models/post.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/resources/firestore_methods.dart" afterDir="false" />
+    <list default="true" id="9ecd2190-cabd-4352-837a-cecb78822738" name="Changes" comment="Feed Posts UI">
+      <change afterPath="$PROJECT_DIR$/lib/screens/feed_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/widgets/post_card.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instagram_clone.iml" beforeDir="false" afterPath="$PROJECT_DIR$/instagram_clone.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/resources/storage_methods.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/resources/storage_methods.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/add_post_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/add_post_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/global_variables.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/global_variables.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682986747330</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Storing Post Data">
+      <created>1683334518210</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1683334518210</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -206,6 +210,8 @@
     <MESSAGE value="Mobile Bottom App Bar" />
     <MESSAGE value="Post Screen UI" />
     <MESSAGE value="Selecting Image" />
-    <option name="LAST_COMMIT_MESSAGE" value="Selecting Image" />
+    <MESSAGE value="Storing Post Data" />
+    <MESSAGE value="Feed Posts UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feed Posts UI" />
   </component>
 </project>
