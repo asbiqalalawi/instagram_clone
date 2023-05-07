@@ -1,8 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/utils/colors.dart';
+import 'package:intl/intl.dart';
 
 class PostCard extends StatelessWidget {
-  const PostCard({Key? key}) : super(key: key);
+  const PostCard({Key? key, required this.snapshot}) : super(key: key);
+
+  final QueryDocumentSnapshot<Map<String, dynamic>> snapshot;
 
   void _moreDialog(BuildContext context) {
     showDialog(
@@ -44,18 +48,18 @@ class PostCard extends StatelessWidget {
           ),
           child: Row(
             children: [
-              const CircleAvatar(
+              CircleAvatar(
                 radius: 16,
                 backgroundImage: NetworkImage(
-                  'https://images.unsplash.com/photo-1682621034494-2242e054972c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60',
+                  snapshot['profilePic'],
                 ),
               ),
-              const Expanded(
+              Expanded(
                 child: Padding(
-                  padding: EdgeInsets.only(left: 8),
+                  padding: const EdgeInsets.only(left: 8),
                   child: Text(
-                    'username',
-                    style: TextStyle(
+                    snapshot['username'],
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -74,7 +78,7 @@ class PostCard extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.35,
           width: double.infinity,
           child: Image.network(
-            'https://images.unsplash.com/photo-1683294163345-1cd8cd02147f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60',
+            snapshot['postUrl'],
             fit: BoxFit.cover,
           ),
         ),
@@ -107,65 +111,68 @@ class PostCard extends StatelessWidget {
         ),
 
         // Description and number of comments
-        Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            DefaultTextStyle(
-              style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                    fontWeight: FontWeight.w800,
-                  ),
-              child: Text(
-                '1,123 likes',
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
-            ),
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.only(top: 4),
-              child: RichText(
-                text: const TextSpan(
-                  style: TextStyle(
-                    color: primaryColor,
-                  ),
-                  children: [
-                    TextSpan(
-                      text: 'username',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              DefaultTextStyle(
+                style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                      fontWeight: FontWeight.w800,
                     ),
-                    TextSpan(
-                      text: ' description of post',
-                    ),
-                  ],
+                child: Text(
+                  '${snapshot['likes'].length} likes',
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ),
-            ),
-            InkWell(
-              onTap: () {},
-              child: const Padding(
-                padding: EdgeInsets.only(top: 4),
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.only(top: 4),
+                child: RichText(
+                  text: TextSpan(
+                    style: const TextStyle(
+                      color: primaryColor,
+                    ),
+                    children: [
+                      TextSpan(
+                        text: snapshot['username'],
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      TextSpan(
+                        text: ' ${snapshot['description']}',
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () {},
+                child: const Padding(
+                  padding: EdgeInsets.only(top: 4),
+                  child: Text(
+                    'View all 200 comments',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: secondaryColor,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 4),
                 child: Text(
-                  'View all 200 comments',
-                  style: TextStyle(
+                  DateFormat.yMMMd().format(snapshot['date'].toDate()),
+                  style: const TextStyle(
                     fontSize: 16,
                     color: secondaryColor,
                   ),
                 ),
               ),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(top: 4),
-              child: Text(
-                '07/05/2023',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: secondaryColor,
-                ),
-              ),
-            ),
-          ],
+            ],
+          ),
         )
       ],
     );
