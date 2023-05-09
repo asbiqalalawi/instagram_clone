@@ -1,12 +1,22 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/providers/user_provider.dart';
 import 'package:instagram_clone/utils/colors.dart';
+import 'package:instagram_clone/widgets/like_animation.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
-class PostCard extends StatelessWidget {
+class PostCard extends StatefulWidget {
   const PostCard({Key? key, required this.snapshot}) : super(key: key);
 
   final QueryDocumentSnapshot<Map<String, dynamic>> snapshot;
+
+  @override
+  State<PostCard> createState() => _PostCardState();
+}
+
+class _PostCardState extends State<PostCard> {
+  bool isLikeAnimating = false;
 
   void _moreDialog(BuildContext context) {
     showDialog(
@@ -36,6 +46,8 @@ class PostCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<UserProvider>(context).getUser;
+
     return Column(
       children: [
         // HEADER
@@ -51,14 +63,14 @@ class PostCard extends StatelessWidget {
               CircleAvatar(
                 radius: 16,
                 backgroundImage: NetworkImage(
-                  snapshot['profilePic'],
+                  widget.snapshot['profilePic'],
                 ),
               ),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8),
                   child: Text(
-                    snapshot['username'],
+                    widget.snapshot['username'],
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
@@ -74,21 +86,55 @@ class PostCard extends StatelessWidget {
         ),
 
         // IMAGE
-        SizedBox(
-          height: MediaQuery.of(context).size.height * 0.35,
-          width: double.infinity,
-          child: Image.network(
-            snapshot['postUrl'],
-            fit: BoxFit.cover,
+        GestureDetector(
+          onDoubleTap: () => setState(() {
+            isLikeAnimating = true;
+          }),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.35,
+                width: double.infinity,
+                child: Image.network(
+                  widget.snapshot['postUrl'],
+                  fit: BoxFit.cover,
+                ),
+              ),
+              AnimatedOpacity(
+                duration: const Duration(milliseconds: 200),
+                opacity: isLikeAnimating ? 1 : 0,
+                child: LikeAnimation(
+                  isAnimating: isLikeAnimating,
+                  duration: const Duration(
+                    milliseconds: 400,
+                  ),
+                  onEnd: () {
+                    setState(() {
+                      isLikeAnimating = false;
+                    });
+                  },
+                  child: const Icon(
+                    Icons.favorite,
+                    color: Colors.white,
+                    size: 120,
+                  ),
+                ),
+              )
+            ],
           ),
         ),
 
         // Likes and comments
         Row(
           children: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.favorite),
+            LikeAnimation(
+              isAnimating: widget.snapshot['likes'].contains(user.uid),
+              smallLike: true,
+              child: IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.favorite),
+              ),
             ),
             IconButton(
               onPressed: () {},
@@ -122,7 +168,7 @@ class PostCard extends StatelessWidget {
                       fontWeight: FontWeight.w800,
                     ),
                 child: Text(
-                  '${snapshot['likes'].length} likes',
+                  '${widget.snapshot['likes'].length} likes',
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ),
@@ -136,13 +182,13 @@ class PostCard extends StatelessWidget {
                     ),
                     children: [
                       TextSpan(
-                        text: snapshot['username'],
+                        text: widget.snapshot['username'],
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       TextSpan(
-                        text: ' ${snapshot['description']}',
+                        text: ' ${widget.snapshot['description']}',
                       ),
                     ],
                   ),
@@ -164,7 +210,7 @@ class PostCard extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 4),
                 child: Text(
-                  DateFormat.yMMMd().format(snapshot['date'].toDate()),
+                  DateFormat.yMMMd().format(widget.snapshot['date'].toDate()),
                   style: const TextStyle(
                     fontSize: 16,
                     color: secondaryColor,

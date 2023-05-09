@@ -9,11 +9,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ecd2190-cabd-4352-837a-cecb78822738" name="Changes" comment="Feed Posts UI">
+    <list default="true" id="9ecd2190-cabd-4352-837a-cecb78822738" name="Changes" comment="Displaying Post Data from Firebase">
+      <change afterPath="$PROJECT_DIR$/lib/widgets/like_animation.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/feed_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/feed_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/widgets/post_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/post_card.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683434309462</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Displaying Post Data from Firebase">
+      <created>1683454075024</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1683454075024</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -219,6 +225,7 @@
     <MESSAGE value="Selecting Image" />
     <MESSAGE value="Storing Post Data" />
     <MESSAGE value="Feed Posts UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feed Posts UI" />
+    <MESSAGE value="Displaying Post Data from Firebase" />
+    <option name="LAST_COMMIT_MESSAGE" value="Displaying Post Data from Firebase" />
   </component>
 </project>
