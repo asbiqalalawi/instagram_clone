@@ -9,9 +9,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ecd2190-cabd-4352-837a-cecb78822738" name="Changes" comment="Like Animation">
+    <list default="true" id="9ecd2190-cabd-4352-837a-cecb78822738" name="Changes" comment="Updating Like">
+      <change afterPath="$PROJECT_DIR$/lib/screens/comments_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/widgets/comment_card.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/resources/firestore_methods.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/resources/firestore_methods.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/widgets/post_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/post_card.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +66,7 @@
     "dart.analysis.tool.window.visible": "false",
     "io.flutter.reload.alreadyRun": "true",
     "last_opened_file_path": "/Users/sds.mac.012/Documents/Code/Flutter/instagram_clone/lib/screens",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "configurable.group.appearance",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
@@ -198,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683641407055</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Updating Like">
+      <created>1683731604237</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1683731604237</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -235,6 +243,7 @@
     <MESSAGE value="Feed Posts UI" />
     <MESSAGE value="Displaying Post Data from Firebase" />
     <MESSAGE value="Like Animation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Like Animation" />
+    <MESSAGE value="Updating Like" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating Like" />
   </component>
 </project>
