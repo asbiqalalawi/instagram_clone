@@ -157,7 +157,7 @@ class _PostCardState extends State<PostCard> {
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const CommentsScreen(),
+                  builder: (context) => CommentsScreen(snapshot: widget.snapshot),
                 ),
               ),
               icon: const Icon(Icons.comment),
