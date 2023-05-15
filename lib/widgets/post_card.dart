@@ -4,6 +4,7 @@ import 'package:instagram_clone/providers/user_provider.dart';
 import 'package:instagram_clone/resources/firestore_methods.dart';
 import 'package:instagram_clone/screens/comments_screen.dart';
 import 'package:instagram_clone/utils/colors.dart';
+import 'package:instagram_clone/utils/utils.dart';
 import 'package:instagram_clone/widgets/like_animation.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -19,6 +20,29 @@ class PostCard extends StatefulWidget {
 
 class _PostCardState extends State<PostCard> {
   bool isLikeAnimating = false;
+
+  int commentLength = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    getComment();
+  }
+
+  void getComment() async {
+    try {
+      final comments = await FirebaseFirestore.instance
+          .collection('posts')
+          .doc(widget.snapshot['postId'])
+          .collection('comments')
+          .get();
+      setState(() {
+        commentLength = comments.docs.length;
+      });
+    } catch (e) {
+      showSnackBar(e.toString(), context);
+    }
+  }
 
   void _moreDialog(BuildContext context) {
     showDialog(
@@ -217,12 +241,17 @@ class _PostCardState extends State<PostCard> {
                 ),
               ),
               InkWell(
-                onTap: () {},
-                child: const Padding(
-                  padding: EdgeInsets.only(top: 4),
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CommentsScreen(snapshot: widget.snapshot),
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 4),
                   child: Text(
-                    'View all 200 comments',
-                    style: TextStyle(
+                    'View all $commentLength comments',
+                    style: const TextStyle(
                       fontSize: 16,
                       color: secondaryColor,
                     ),

@@ -34,7 +34,28 @@ class _CommentsScreenState extends State<CommentsScreen> {
         title: const Text('Comments'),
         centerTitle: false,
       ),
-      body: const CommentCard(),
+      body: StreamBuilder(
+        stream: FirebaseFirestore.instance
+            .collection('posts')
+            .doc(widget.snapshot['postId'])
+            .collection('comments')
+            .orderBy('date', descending: true)
+            .snapshots(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+
+          return ListView.builder(
+            itemCount: snapshot.data!.docs.length,
+            itemBuilder: (context, index) => CommentCard(
+              snapshot: snapshot.data!.docs[index],
+            ),
+          );
+        },
+      ),
       bottomNavigationBar: SafeArea(
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -69,6 +90,7 @@ class _CommentsScreenState extends State<CommentsScreen> {
                     user.username,
                     user.profilePic,
                   );
+                  _commentController.text = '';
                 },
                 child: Container(
                   padding: const EdgeInsets.all(8),

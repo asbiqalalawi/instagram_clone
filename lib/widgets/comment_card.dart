@@ -1,18 +1,22 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class CommentCard extends StatelessWidget {
-  const CommentCard({Key? key}) : super(key: key);
+  const CommentCard({Key? key, required this.snapshot}) : super(key: key);
+
+  final QueryDocumentSnapshot<Map<String, dynamic>> snapshot;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const CircleAvatar(
+          CircleAvatar(
             backgroundImage: NetworkImage(
-              'https://images.unsplash.com/photo-1683464623235-d165004a9e75?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60',
+              snapshot['profilePic'],
             ),
             radius: 18,
           ),
@@ -23,21 +27,21 @@ class CommentCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   RichText(
-                    text: const TextSpan(
+                    text: TextSpan(
                       children: [
                         TextSpan(
-                          text: 'username',
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          text: snapshot['username'],
+                          style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
-                        TextSpan(text: ' username'),
+                        TextSpan(text: ' ${snapshot['text']}'),
                       ],
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 4),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 4),
                     child: Text(
-                      '12/43/1233',
-                      style: TextStyle(
+                      DateFormat.yMMMMd().format(snapshot['date'].toDate()),
+                      style: const TextStyle(
                         fontWeight: FontWeight.w400,
                         fontSize: 12,
                       ),

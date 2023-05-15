@@ -9,10 +9,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ecd2190-cabd-4352-837a-cecb78822738" name="Changes" comment="Comments Screen UI">
+    <list default="true" id="9ecd2190-cabd-4352-837a-cecb78822738" name="Changes" comment="Storing Comments in Firestore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/resources/firestore_methods.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/resources/firestore_methods.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/comments_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/comments_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/comment_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/comment_card.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/widgets/post_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/post_card.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -213,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683815126055</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Storing Comments in Firestore">
+      <created>1684059375410</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1684059375410</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -252,6 +259,7 @@
     <MESSAGE value="Like Animation" />
     <MESSAGE value="Updating Like" />
     <MESSAGE value="Comments Screen UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comments Screen UI" />
+    <MESSAGE value="Storing Comments in Firestore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Storing Comments in Firestore" />
   </component>
 </project>
