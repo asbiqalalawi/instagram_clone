@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:instagram_clone/screens/profile_screen.dart';
 import 'package:instagram_clone/utils/colors.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -54,6 +55,12 @@ class _SearchScreenState extends State<SearchScreen> {
                 return ListView.builder(
                   itemCount: snapshot.data!.docs.length,
                   itemBuilder: (context, index) => ListTile(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProfileScreen(uid: snapshot.data!.docs[index]['uid']),
+                      ),
+                    ),
                     leading: CircleAvatar(
                       backgroundImage: NetworkImage(
                         snapshot.data!.docs[index]['profilePic'],

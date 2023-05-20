@@ -9,10 +9,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ecd2190-cabd-4352-837a-cecb78822738" name="Changes" comment="Showing Posts on Search Screen">
-      <change afterPath="$PROJECT_DIR$/lib/screens/profile_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/widgets/follow_button.dart" afterDir="false" />
+    <list default="true" id="9ecd2190-cabd-4352-837a-cecb78822738" name="Changes" comment="Displaying Profile Data">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/profile_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/profile_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/search_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/search_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/utils/global_variables.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/global_variables.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -242,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684401135207</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Creating Reusable Profile Screen UI">
+      <created>1684542850422</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1684542850422</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -285,6 +292,8 @@
     <MESSAGE value="Displaying Comments" />
     <MESSAGE value="Searching Users" />
     <MESSAGE value="Showing Posts on Search Screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Showing Posts on Search Screen" />
+    <MESSAGE value="Creating Reusable Profile Screen UI" />
+    <MESSAGE value="Displaying Profile Data" />
+    <option name="LAST_COMMIT_MESSAGE" value="Displaying Profile Data" />
   </component>
 </project>
