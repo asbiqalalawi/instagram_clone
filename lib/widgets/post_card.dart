@@ -4,7 +4,6 @@ import 'package:instagram_clone/providers/user_provider.dart';
 import 'package:instagram_clone/resources/firestore_methods.dart';
 import 'package:instagram_clone/screens/comments_screen.dart';
 import 'package:instagram_clone/utils/colors.dart';
-import 'package:instagram_clone/utils/utils.dart';
 import 'package:instagram_clone/widgets/like_animation.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -36,11 +35,12 @@ class _PostCardState extends State<PostCard> {
           .doc(widget.snapshot['postId'])
           .collection('comments')
           .get();
+      if (!mounted) return;
       setState(() {
         commentLength = comments.docs.length;
       });
     } catch (e) {
-      showSnackBar(e.toString(), context);
+      debugPrint(e.toString());
     }
   }
 

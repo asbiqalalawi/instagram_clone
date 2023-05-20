@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/resources/firestore_methods.dart';
 import 'package:instagram_clone/utils/colors.dart';
 import 'package:instagram_clone/utils/utils.dart';
 import 'package:instagram_clone/widgets/follow_button.dart';
@@ -102,18 +103,37 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                             text: 'Edit Profile',
                                           )
                                         : isFollowing
-                                            ? const FollowButton(
+                                            ? FollowButton(
                                                 backgroundColor: Colors.white,
                                                 borderColor: Colors.grey,
                                                 textColor: Colors.black,
                                                 text: 'Unfollow',
+                                                onPressed: () {
+                                                  FirestoreMethods().followUser(
+                                                    FirebaseAuth.instance.currentUser!.uid,
+                                                    widget.uid,
+                                                  );
+                                                  setState(() {
+                                                    followers--;
+                                                    isFollowing = false;
+                                                  });
+                                                },
                                               )
-                                            : const FollowButton(
+                                            : FollowButton(
                                                 backgroundColor: Colors.blue,
                                                 borderColor: Colors.blue,
                                                 textColor: Colors.white,
                                                 text: 'Follow',
-                                              )
+                                                onPressed: () {
+                                                  FirestoreMethods().followUser(
+                                                    FirebaseAuth.instance.currentUser!.uid,
+                                                    widget.uid,
+                                                  );
+                                                  setState(() {
+                                                    followers++;
+                                                    isFollowing = true;
+                                                  });
+                                                })
                                   ],
                                 ),
                               ],
