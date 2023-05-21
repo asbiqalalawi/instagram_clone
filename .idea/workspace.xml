@@ -9,10 +9,15 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ecd2190-cabd-4352-837a-cecb78822738" name="Changes" comment="Following Users">
+    <list default="true" id="9ecd2190-cabd-4352-837a-cecb78822738" name="Changes" comment="Signing Out">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/resources/auth_methods.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/resources/auth_methods.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/responsive/web_screen_layout.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/responsive/web_screen_layout.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/feed_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/feed_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/login_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/login_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/profile_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/profile_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/search_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/search_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/follow_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/follow_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/post_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/post_card.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684595096465</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Signing Out">
+      <created>1684595577649</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1684595577649</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -283,7 +295,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Firebase configuration update" />
     <MESSAGE value="Pod Runner iOS" />
     <MESSAGE value="Login Screen UI (Mobile)" />
     <MESSAGE value="Signup Screen UI (Mobile)" />
@@ -308,6 +319,7 @@
     <MESSAGE value="Creating Reusable Profile Screen UI" />
     <MESSAGE value="Displaying Profile Data" />
     <MESSAGE value="Following Users" />
-    <option name="LAST_COMMIT_MESSAGE" value="Following Users" />
+    <MESSAGE value="Signing Out" />
+    <option name="LAST_COMMIT_MESSAGE" value="Signing Out" />
   </component>
 </project>

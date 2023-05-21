@@ -19,6 +19,7 @@ class FollowButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
       padding: const EdgeInsets.only(top: 2),
       child: TextButton(
         onPressed: onPressed,
@@ -29,8 +30,8 @@ class FollowButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(5),
           ),
           alignment: Alignment.center,
-          width: 250,
           height: 27,
+          width: double.infinity,
           child: Text(
             text,
             style: TextStyle(
